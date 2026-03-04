@@ -1,27 +1,48 @@
 # coding-test-prep
-Preparing from entry level Software Engineering roles through intensive LeetCode preparation.
 
-The goal is to recognize common patterns in LeetCode problems, as well as to explain the coding concepts. Such concepts include arrays, hashing, strings, sliding window, and binary search.
+A complete LeetCode tracker website for planning, practicing, and reviewing problems in one place.
 
-Completing this set of Leetcode problems will ensure that I am ready for on-site interviews. 
+## What This Project Is
+This project is a personal LeetCode operating system:
+- Track problem progress from `Not Started` to `Solved`
+- Track Explore lessons and crash courses with structured notes
+- Organize all major LeetCode topics with concise explanations
+- Open topic-specific LeetCode problems directly from the site
+- Save code and approach notes per problem for deep review
 
-Before 2026, I hope to complete these following LeetCode problems:
+## Features
+- Progress dashboard with totals, completion percentage, and motivation cues
+- Problem tracker with difficulty, topic, status, search, and filters
+- Per-problem workspace:
+  - `My Code`
+  - `My Approach Thoughts`
+- Explore notes tracker:
+  - Supports `Lesson` and `Crash Course` modules
+  - Notes persisted per module
+- Topic library:
+  - Topic sections for the full listed LeetCode set
+  - Dedicated page for each topic with concise definition and starter problem links
+- About page with project motivation and goals
+- Persistent local storage (data remains after refresh)
+- Responsive UI with a pink floral design theme
 
-1. Two Sum
-2. Valid Anagram
-3. Contains Duplicate
-4. Group Anagrams
-5. Product of Array Except Self
-6. Top K Frequent Elements
-7. Longest Substring Without Repeating Characters
-8. Valid Palindrome
-9. Valid Parentheses
-10. Longest Common Prefix (super common in JPM)
-11. Reverse String
-12. Best Time to Buy and Sell Stock
-13. Minimum Size Subarray Sum
-14. Permutation in String
-15. Binary Search
-16. Search Insert Position
-17. Search in Rotated Sorted Array
-18. Find Peak Element
+## Pages
+- `index.html` - Main dashboard and trackers
+- `topics.html` - All topic sections
+- `topic.html` - Single-topic concise guide + problem links
+- `about.html` - Personal motivation and goals
+
+## Tech Stack
+- HTML
+- CSS
+- Vanilla JavaScript
+- LocalStorage for persistence
+
+## Run Locally
+1. Clone the repo
+2. Open `index.html` in your browser
+
+No build step or backend required.
+
+## Goal
+Finish all LeetCode questions and understand them in and out through consistent practice, pattern recognition, and written review.
