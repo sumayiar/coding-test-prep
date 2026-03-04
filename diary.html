@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Diary - LeetTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <p class="eyebrow">Daily Diary</p>
+      <h1>Log Your Daily LeetCode Progress</h1>
+      <p class="subtext">Add a date, write what you solved/studied, and optionally upload one file as proof or notes.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="index.html">Back to Dashboard</a>
+        <a class="btn btn-secondary" href="about.html">About Me</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="section-header">
+          <h2>New Entry</h2>
+          <p>Keep this short and consistent every day.</p>
+        </div>
+
+        <form id="diaryForm" class="form-grid">
+          <input id="entryDate" type="date" required />
+          <input id="entryTitle" type="text" placeholder="Title (e.g. DFS grind day)" required />
+          <textarea id="entryText" rows="5" placeholder="What did you solve, what did you learn, what to review tomorrow?" required></textarea>
+          <input id="entryFile" type="file" accept="image/*,.pdf,.txt,.md,.doc,.docx" />
+          <button type="submit" class="btn btn-primary">Save Diary Entry</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <h2>Saved Entries</h2>
+          <p id="entryCount">0 entries</p>
+        </div>
+        <div id="diaryList" class="cards"></div>
+      </section>
+    </main>
+
+    <script src="diary.js"></script>
+  </body>
+</html>
