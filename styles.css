@@ -395,6 +395,22 @@ textarea:focus {
   white-space: pre-wrap;
 }
 
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.checkbox-row input {
+  width: auto;
+}
+
+#githubStatus {
+  margin-top: 0.5rem;
+}
+
 .attachment-link {
   display: inline-block;
   margin-top: 0.55rem;

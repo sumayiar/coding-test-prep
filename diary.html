@@ -26,6 +26,27 @@
     <main class="layout">
       <section class="panel">
         <div class="section-header">
+          <h2>GitHub Sync (Client-side)</h2>
+          <p>Uses your personal access token to commit diary files to your repo.</p>
+        </div>
+
+        <form id="githubForm" class="form-grid">
+          <input id="ghOwner" type="text" placeholder="Owner (e.g. sumayiar)" required />
+          <input id="ghRepo" type="text" placeholder="Repo (e.g. coding-test-prep)" required />
+          <input id="ghBranch" type="text" placeholder="Branch (default: main)" />
+          <input id="ghFolder" type="text" placeholder="Folder path (default: diary-entries)" />
+          <input id="ghToken" type="password" placeholder="GitHub token (repo contents write)" required />
+          <label class="checkbox-row">
+            <input id="autoPush" type="checkbox" />
+            Auto-push new entry when saved
+          </label>
+          <button type="submit" class="btn btn-primary">Save GitHub Settings</button>
+        </form>
+        <p id="githubStatus" class="card-meta"></p>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
           <h2>New Entry</h2>
           <p>Keep this short and consistent every day.</p>
         </div>
@@ -43,6 +64,9 @@
         <div class="section-header">
           <h2>Saved Entries</h2>
           <p id="entryCount">0 entries</p>
+        </div>
+        <div class="card-controls">
+          <button id="pushAllBtn" class="btn btn-secondary btn-small" type="button">Push All To GitHub</button>
         </div>
         <div id="diaryList" class="cards"></div>
       </section>
