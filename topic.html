@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic Guide - LeetTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <p class="eyebrow">Topic Guide</p>
+      <h1 id="topicName">Topic</h1>
+      <p id="topicSummary" class="subtext"></p>
+      <div class="hero-actions">
+        <a class="btn btn-secondary" href="about.html">About Me</a>
+        <a class="btn btn-primary" href="topics.html">Back to Topics</a>
+        <a id="tagLink" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Open Tag Page</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="section-header">
+          <h2>Starter Problems</h2>
+          <p>Open each question directly on LeetCode.</p>
+        </div>
+        <div id="problemLinks" class="cards"></div>
+      </section>
+    </main>
+
+    <script src="topic-data.js"></script>
+    <script src="topic.js"></script>
+  </body>
+</html>

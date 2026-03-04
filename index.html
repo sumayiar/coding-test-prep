@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeetTrack - LeetCode Progress + Explore Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <header class="hero">
+      <p class="eyebrow">LeetTrack</p>
+      <h1>Finish Every Problem You Care About</h1>
+      <p class="subtext">
+        Track solves, keep momentum, and keep your Explore lesson/crash course notes organized in one place.
+      </p>
+      <div class="hero-actions">
+        <a href="about.html" class="btn btn-secondary">About Me</a>
+        <a href="topics.html" class="btn btn-primary">Open Topic Sections</a>
+        <button id="seedDataBtn" class="btn btn-secondary">Load Demo Data</button>
+        <button id="resetBtn" class="btn btn-ghost">Reset All Data</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="section-header">
+          <h2>Topic Sections</h2>
+          <p>All topics from your list, each with a concise explanation + linked problems.</p>
+        </div>
+        <div class="card">
+          <p class="card-meta">Use this to jump by topic and practice systematically.</p>
+          <div class="card-controls">
+            <a class="btn btn-primary" href="topics.html">Browse All Topics</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel stats-panel">
+        <h2>Progress Snapshot</h2>
+        <div class="stats-grid" id="statsGrid"></div>
+        <div class="progress-wrap">
+          <div class="progress-head">
+            <span>Overall Completion</span>
+            <span id="completionText">0%</span>
+          </div>
+          <div class="progress-track">
+            <div id="completionBar" class="progress-fill"></div>
+          </div>
+          <p id="motivationText" class="motivation">Start small: solve one problem today.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <h2>Problem Tracker</h2>
+          <p>Track each problem and push toward 100% completion.</p>
+        </div>
+
+        <form id="problemForm" class="form-grid">
+          <input id="problemTitle" type="text" placeholder="Problem title" required />
+          <input id="problemTopic" type="text" placeholder="Topic (e.g. Graphs)" required />
+          <select id="problemDifficulty" required>
+            <option value="">Difficulty</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+          <select id="problemStatus" required>
+            <option value="">Status</option>
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Solved">Solved</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Add Problem</button>
+        </form>
+
+        <div class="inline-controls">
+          <select id="statusFilter">
+            <option value="All">All Statuses</option>
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Solved">Solved</option>
+          </select>
+          <select id="difficultyFilter">
+            <option value="All">All Difficulties</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+          <input id="searchInput" type="search" placeholder="Search title/topic" />
+        </div>
+
+        <div id="problemList" class="cards"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-header">
+          <h2>Explore Notes Tracker</h2>
+          <p>Follow LeetCode Explore lessons and crash courses with structured notes.</p>
+        </div>
+
+        <form id="exploreForm" class="form-grid">
+          <input id="exploreTitle" type="text" placeholder="Module title" required />
+          <select id="exploreType" required>
+            <option value="">Type</option>
+            <option value="Lesson">Lesson</option>
+            <option value="Crash Course">Crash Course</option>
+          </select>
+          <select id="exploreStatus" required>
+            <option value="">Status</option>
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Add Module</button>
+        </form>
+
+        <div id="exploreList" class="cards"></div>
+      </section>
+    </main>
+
+    <template id="problemCardTemplate">
+      <article class="card">
+        <div class="card-head">
+          <h3 class="card-title"></h3>
+          <span class="pill difficulty"></span>
+        </div>
+        <p class="card-meta"></p>
+        <div class="card-controls">
+          <select class="status-select">
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Solved">Solved</option>
+          </select>
+          <button class="btn btn-danger btn-small delete-btn">Delete</button>
+        </div>
+        <div class="problem-workspace">
+          <label class="workspace-label">My Code</label>
+          <textarea class="problem-code" rows="6" placeholder="Paste your solution code here..."></textarea>
+          <label class="workspace-label">My Approach Thoughts</label>
+          <textarea
+            class="problem-thoughts"
+            rows="4"
+            placeholder="Key insight, brute force -> optimal path, edge cases, complexity..."
+          ></textarea>
+        </div>
+      </article>
+    </template>
+
+    <template id="exploreCardTemplate">
+      <article class="card explore-card">
+        <div class="card-head">
+          <h3 class="card-title"></h3>
+          <span class="pill type-pill"></span>
+        </div>
+        <div class="card-controls">
+          <select class="status-select">
+            <option value="Not Started">Not Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+          <button class="btn btn-danger btn-small delete-btn">Delete</button>
+        </div>
+        <textarea class="notes" rows="5" placeholder="Write your key ideas, pitfalls, patterns, and review plan..."></textarea>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
